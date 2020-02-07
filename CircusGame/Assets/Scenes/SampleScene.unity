@@ -1553,7 +1553,7 @@ MonoBehaviour:
     force: 7
   - bone: {fileID: 1027325314}
     restRotation: 0
-    force: 30
+    force: 50
   work: 1
 --- !u!114 &1415103344
 MonoBehaviour:
@@ -1645,14 +1645,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac541bf6a4d3d84bacc9535375e7618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rig: {fileID: 1494752868}
-  rig2: {fileID: 1566226490}
-  rig12: {fileID: 1224444289}
-  rig21: {fileID: 636698225}
-  rig3: {fileID: 2016980461}
+  LowerLegL: {fileID: 1566226490}
+  UpperLegL: {fileID: 636698225}
+  LowerLegR: {fileID: 1494752868}
+  UpperLegR: {fileID: 1224444289}
   offset: {x: 0, y: 0}
   drawOffset: 1
-  force_multiplier: 10
+  force_multiplier: 70
 --- !u!1 &1494752864
 GameObject:
   m_ObjectHideFlags: 0

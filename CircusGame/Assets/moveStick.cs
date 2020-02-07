@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class moveStick : MonoBehaviour
 {
-    public Rigidbody2D rig,rig2,rig12,rig21,rig3;
+    public Rigidbody2D LowerLegL,UpperLegL,LowerLegR,UpperLegR;
     public Vector2 offset;
     public bool drawOffset = true;
-
+    float keyForce=60;
     public float force_multiplier = 10;
 
     void Update()
@@ -19,58 +19,99 @@ public class moveStick : MonoBehaviour
             force = force.normalized * mag;
             rig.AddForce(-force * Time.deltaTime * 1000 * force_multiplier);
         }*/
-        if(Input.GetKey(KeyCode.W))
+
+        if (Input.GetKey(KeyCode.W))
         {
-            rig12.MoveRotation(Mathf.LerpAngle(rig12.rotation, 20, 100 * Time.fixedDeltaTime));
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 180, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
         }
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
-            rig.MoveRotation(Mathf.LerpAngle(rig.rotation, 20, 100 * Time.fixedDeltaTime));
-        }
-        if(Input.GetKey(KeyCode.D))
-        {
-            rig.MoveRotation(Mathf.LerpAngle(rig.rotation, 45, 40 * Time.fixedDeltaTime));
-            //rig12.MoveRotation(Mathf.LerpAngle(rig21.rotation, 45, 40 * Time.fixedDeltaTime));
-            //Vector2 force = (rig.position + offset) - (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //float mag = Mathf.Clamp(force.magnitude, 0, 1.2f);
-            //force = force.normalized * mag;
-            //rig.AddForce(-force * Time.deltaTime * 500 * force_multiplier);
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rig.MoveRotation(Mathf.LerpAngle(rig.rotation, -45, 100 * Time.fixedDeltaTime));
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, -45, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
         }
-
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.D))
         {
-            rig21.MoveRotation(Mathf.LerpAngle(rig21.rotation, -20, 100 * Time.fixedDeltaTime));
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 45, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+        {
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, -90, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        {
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 90, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+        {
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, -20, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, -20, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+        {
+            UpperLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 20, keyForce * Time.fixedDeltaTime));
+            LowerLegL.MoveRotation(Mathf.LerpAngle(UpperLegL.rotation, 20, keyForce * Time.fixedDeltaTime));
         }
 
+
+        //RightLeg
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 180, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            rig2.MoveRotation(Mathf.LerpAngle(rig2.rotation, -20, 100 * Time.fixedDeltaTime));
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rig2.MoveRotation(Mathf.LerpAngle(rig2.rotation, -45, 100 * Time.fixedDeltaTime));
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, -45, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            rig2.MoveRotation(Mathf.LerpAngle(rig2.rotation, 45, 100 * Time.fixedDeltaTime));
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 45, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow))
+        {
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, -90, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 90, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 0, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.LeftArrow))
+        {
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, -20, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, -20, keyForce * Time.fixedDeltaTime));
+        }
+        if (Input.GetKey(KeyCode.DownArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            UpperLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 20, keyForce * Time.fixedDeltaTime));
+            LowerLegR.MoveRotation(Mathf.LerpAngle(UpperLegR.rotation, 20, keyForce * Time.fixedDeltaTime));
         }
 
-        if(Input.GetKey(KeyCode.Space))
+
+        if (Input.GetKey(KeyCode.Space))
         {
             gameObject.GetComponent<Stand>().work = false;
         }
         else
         {
             gameObject.GetComponent<Stand>().work = true;
-        }
-
-        if(Input.GetKey(KeyCode.Alpha6))
-        {
-            rig3.MoveRotation(Mathf.LerpAngle(rig3.rotation, 45, 100 * Time.fixedDeltaTime));
         }
     }
 }
