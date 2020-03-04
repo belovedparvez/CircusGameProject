@@ -62,10 +62,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\moveStick.cs" />
-    <Compile Include="Assets\Pull_Sc.cs" />
-    <Compile Include="Assets\Removecollision.cs" />
-    <Compile Include="Assets\Stand.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\_Muscle.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Attack_Logic.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\BasicStickMan.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\BodyPart.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Camera\FollowCamera.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Equipable.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\EquipManager.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Item.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Pickable.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Removecollision.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Rope\Pull.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Rope\RopeSetter.cs" />
+    <Compile Include="Assets\Mechanics\Scripts\Rope\SpiderRope.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/belov/Documents/Unity Projects/CircusGame/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
